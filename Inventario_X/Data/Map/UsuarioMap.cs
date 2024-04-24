@@ -14,7 +14,7 @@ namespace Inventario_X.Data.Map
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
             builder.Property(x => x.Email).IsRequired().HasMaxLength(150);
             builder.Property(x => x.Senha).IsRequired().HasMaxLength(150);
-            builder.Property(x => x.Telefone).IsRequired().HasMaxLength(15);
+            builder.Property(x => x.Telefone).IsRequired().HasMaxLength(20);
 
         }
     }

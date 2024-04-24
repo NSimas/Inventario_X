@@ -5,7 +5,7 @@
 namespace Inventario_X.Migrations
 {
     /// <inheritdoc />
-    public partial class inventarioDB : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +34,8 @@ namespace Inventario_X.Migrations
                     CodigoUsuario = table.Column<int>(type: "int", maxLength: 8, nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
-                    Telefone = table.Column<int>(type: "int", maxLength: 15, nullable: false)
+                    Telefone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Senha = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false)
                 },
                 constraints: table =>
                 {
