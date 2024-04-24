@@ -48,6 +48,7 @@ namespace Inventario_X.Repositorios
             usuarioPorId.Nome = usuario.Nome;
             usuarioPorId.Email = usuario.Email;
             usuarioPorId.Telefone = usuario.Telefone;
+            usuarioPorId.Senha = usuario.Senha;
 
             _dbContext.Usuarios.Update(usuarioPorId);
             await _dbContext.SaveChangesAsync();

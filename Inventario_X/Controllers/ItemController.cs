@@ -1,5 +1,6 @@
 ﻿using Inventario_X.Models;
 using Inventario_X.Repositorios.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace Inventario_X.Controllers
             _itemRepositorio = itemRepositorio;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<ItemModel>>> BuscarTodosItens()
         {
@@ -23,6 +25,7 @@ namespace Inventario_X.Controllers
             return Ok(itens);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<List<ItemModel>>> BuscarItem(int id)
         {
@@ -30,6 +33,7 @@ namespace Inventario_X.Controllers
             return Ok(item);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<ItemModel>> AdicionarItem([FromBody] ItemModel itemModel)
         {
@@ -37,6 +41,7 @@ namespace Inventario_X.Controllers
             return Ok(itemdicionado);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<ActionResult<ItemModel>> AtualizarItem([FromBody] ItemModel itemModel, int id)
         {
@@ -45,6 +50,7 @@ namespace Inventario_X.Controllers
             return Ok(itemEditado);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<bool>> ApagarItem(int id)
         {
