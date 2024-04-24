@@ -1,11 +1,13 @@
 ﻿using Inventario_X.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Inventario_X.Controllers
 {
     [ApiController]
     [Route("api/auth")]
-    public class AuthController : Controller
+    public class AuthController : ControllerBase
     {
         [HttpPost]
 
@@ -25,6 +27,14 @@ namespace Inventario_X.Controllers
             {
                 return Unauthorized();
             }
+        }
+
+        [HttpGet]
+        [Route("ping")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult Ping() 
+        {
+            return Ok();
         }
 
     }
